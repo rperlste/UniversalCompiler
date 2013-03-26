@@ -16,16 +16,16 @@ Token::Token( TokenEnums tokenType ){
 
 Token::Token( TokenEnums tokenType, std::string tokenValue ){
 	this->tokenType = tokenType;
-    this->tokenValue = tokenValue;
+	this->tokenValue = tokenValue;
 }
 
 
 void Token::setTokenType( TokenEnums tokenType ){
-    this->tokenType = tokenType;
+	this->tokenType = tokenType;
 }
 
 TokenEnums Token::getTokenType(){
-    return tokenType;
+	return tokenType;
 }
 
 std::string Token::getTokenTypeString(){
@@ -33,11 +33,11 @@ std::string Token::getTokenTypeString(){
 }
 
 std::string Token::getTokenValue() {
-    return tokenValue;
+	return tokenValue;
 }
 
 void Token::setTokenValue(std::string tokenValue) {
-    this->tokenValue = tokenValue;
+	this->tokenValue = tokenValue;
 }
 
 bool Token::isTokenType( TokenEnums tokenEnum ){

@@ -122,7 +122,9 @@ void Predict::FillFirstSet(){
 			//if there exists a production A —> a . . . 
 			if( grammar.productions.get(prodIndex).getRHS().get(0) == grammar.terminalSet[termIndex] ){
 				// then FirstSet(A) := FirstSet(A) ∪ {a};
-				grammar.firstSet.setUnion( grammar.productions.get(prodIndex).getLHS(), grammar.terminalSet[termIndex] );
+				grammar.firstSet.setUnion( 
+					grammar.productions.get(prodIndex).getLHS(), 
+					grammar.terminalSet[termIndex] );
 			}
 		}
 	}
@@ -162,7 +164,8 @@ void Predict::FillFollowSet(){
 				// Check RHS for y value or _LAMBDA
 				if( indexB < (grammar.productions.get(indexA).getRHS().size() - 1) ){
 					// then FollowSet(B) := FollowSet(B) ∪ (ComputeFirst(y) — {λ}); 
-					tempGSet = ComputeFirst( grammar.productions.get(indexA).getRHS().get(indexB+1) );
+					tempGSet = ComputeFirst( 
+						grammar.productions.get(indexA).getRHS().get(indexB+1) );
 					if( tempGSet.contains( _LAMBDA ) ){
 						yContainsLambda = true;
 						tempGSet.erase( _LAMBDA );
@@ -191,7 +194,8 @@ void Predict::FillPredictSet(){
 		if( tempSet.contains( _LAMBDA )){
 			// then (First (X1X2. . .Xm) U Follow(A)) - LAMBDA
 			grammar.predictSet.setUnion( grammar.productions[i], tempSet );
-			grammar.predictSet.setUnion( grammar.productions[i], grammar.followSet[grammar.productions[i].getLHS()] );
+			grammar.predictSet.setUnion( grammar.productions[i], 
+				grammar.followSet[grammar.productions[i].getLHS()] );
 		}
 		else {
 			// else First (X1X2. . .Xm)
@@ -205,17 +209,20 @@ void Predict::PrintLookAheadSets(){
 	std::cout << "\n\n::: FIRST SET :::\n";
 	for( int firstSetIndex = 0; firstSetIndex < grammar.firstSet.size(); firstSetIndex++ ){
 		if( grammar.firstSet.getKeyByIndex( firstSetIndex ) != _LAMBDA )
-			std::cout << "\n" << grammar.firstSet.getKeyByIndex(firstSetIndex) << " = " << grammar.firstSet.getValueByIndex(firstSetIndex).getSetAsString();
+			std::cout << "\n" << grammar.firstSet.getKeyByIndex(firstSetIndex) 
+				<< " = " << grammar.firstSet.getValueByIndex(firstSetIndex).getSetAsString();
 	}
 	
 	std::cout << "\n\n::: FOLLOW SET :::\n";
 	for( int followSetIndex = 0; followSetIndex < grammar.followSet.size(); followSetIndex++ ){
-		std::cout << "\n" << grammar.followSet.getKeyByIndex(followSetIndex) << " = " << grammar.followSet.getValueByIndex(followSetIndex).getSetAsString();
+		std::cout << "\n" << grammar.followSet.getKeyByIndex(followSetIndex) 
+			<< " = " << grammar.followSet.getValueByIndex(followSetIndex).getSetAsString();
 	}
 
 	std::cout << "\n\n::: PREDICT SET :::\n";
 	for( int predictSetIndex = 0; predictSetIndex < grammar.predictSet.size(); predictSetIndex++ ){
-		std::cout << "\n" << grammar.predictSet.getKeyByIndex(predictSetIndex).getLHS() << " = " << grammar.predictSet.getValueByIndex(predictSetIndex).getSetAsString();
+		std::cout << "\n" << grammar.predictSet.getKeyByIndex(predictSetIndex).getLHS() 
+			<< " = " << grammar.predictSet.getValueByIndex(predictSetIndex).getSetAsString();
 	}
 }
 

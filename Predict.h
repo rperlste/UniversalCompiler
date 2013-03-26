@@ -9,32 +9,21 @@
 
 class Predict{
 public:
-	Predict( const Grammar& );
-
-	void MarkLambda();
-
-	GrammarSet ComputeFirst( RightHandSide& );
-
-	GrammarSet ComputeFirst( Symbol& symbol );
-
-	GrammarSet ComputeFirst( Production& );
-
-	GrammarSet ComputeFirst( const int&, const int& );
-
-	void FillFirstSet();
-
-	void FillFollowSet();
-
-	void FillPredictSet();
-
-	void PrintLookAheadSets();
-
-	bool DerivesLambda( Production );
-
-	Grammar* getGrammar();
-
+	Predict(       const Grammar& );
+	void           MarkLambda();  
+	GrammarSet     ComputeFirst(     RightHandSide& );
+	GrammarSet     ComputeFirst(     Symbol& symbol );
+	GrammarSet     ComputeFirst(     Production& );
+	GrammarSet     ComputeFirst(     const int&, 
+	                                 const int& );
+	void           FillFirstSet();
+	void           FillFollowSet();
+	void           FillPredictSet();
+	void           PrintLookAheadSets();
+	bool           DerivesLambda(    Production );
+	Grammar*       getGrammar();
 private:
-	Grammar grammar;
+	Grammar        grammar;
 };
 
 

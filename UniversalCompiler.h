@@ -17,17 +17,15 @@
 class UniversalCompiler {
 public:
 
-	UniversalCompiler(	const char* grammarFilePtr, 
-						const char* programFilePtr, 
-						const char* compiledFilePtr );
+	UniversalCompiler(    const char* grammarFilePtr, 
+	                      const char* programFilePtr,
+	                      const char* compiledFilePtr );
 	
-	void greeting();
-
-	void initialize();
-
-	bool setGrammarFile( const std::string& grammarFileName );
-	bool setProgramFile( const std::string& programFileName );
-	bool setCompiledFile( const std::string& compiledFileName );
+	void                  greeting();
+	void                  initialize();
+	bool                  setGrammarFile(  const std::string& grammarFileName );
+	bool                  setProgramFile(  const std::string& programFileName );
+	bool                  setCompiledFile( const std::string& compiledFileName );
 
 	// Runs the menu, giving access to the various
 	// componenets of the UC.
@@ -38,29 +36,29 @@ public:
 
 private:
 	// Files
-	std::fstream grammarFile;
-	std::fstream programFile;
-	std::fstream compiledFile;
+	std::fstream           grammarFile;
+	std::fstream           programFile;
+	std::fstream           compiledFile;
 	
 	// Compile-time Objects
-	GrammarAnalyzer* grammarAnalyzer;
-	Predict* predictSetAnalyzer;
-	ParseTable* parseTableGenerator;
-	Scanner* scanner;
-	ParserDriver* parser;
-	LL1Compiler* compiler;
+	GrammarAnalyzer*       grammarAnalyzer;
+	Predict*               predictSetAnalyzer;
+	ParseTable*            parseTableGenerator;
+	Scanner*               scanner;
+	ParserDriver*          parser;
+	LL1Compiler*           compiler;
 	
 	
 
 	// Main menu options
-	bool runFileManager();
-	void runGrammarAnalyzer( bool );
-	void runPredictSetAnalyzer( bool );
-	void runParseTableGenerator( bool );
-	void runScanner();
-	void runParser( bool );
-	void runCompiler( bool );
-	void printFileToCout( std::fstream& file );
+	bool                   runFileManager();
+	void                   runGrammarAnalyzer( bool );
+	void                   runPredictSetAnalyzer( bool );
+	void                   runParseTableGenerator( bool );
+	void                   runScanner();
+	void                   runParser( bool );
+	void                   runCompiler( bool );
+	void                   printFileToCout( std::fstream& file );
 };
 
 

@@ -35,11 +35,11 @@ struct StackObject{
 		type = EOPEnum;
 	}
 
-	ActionSymbol actionSymbol;
-	Symbol symbol;
-	EndOfProduction EOP;
-	SemanticRecord semanticRecord;
-	StackObjectType type;
+	ActionSymbol                 actionSymbol;
+	Symbol                       symbol;
+	EndOfProduction              EOP;
+	SemanticRecord               semanticRecord;
+	StackObjectType              type;
 };
 
 

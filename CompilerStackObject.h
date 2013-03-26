@@ -45,11 +45,11 @@ struct StackObject{
 		type = SemanticRecordEnum;
 	}
 
-	ActionSymbols::ActionSymbol actionSymbol;
-	Symbol symbol;
-	EndOfProduction EOP;
-	SemanticRecord semanticRecord;
-	StackObjectType type;
+	ActionSymbols::ActionSymbol     actionSymbol;
+	Symbol                          symbol;
+	EndOfProduction                 EOP;
+	SemanticRecord                  semanticRecord;
+	StackObjectType                 type;
 };
 
 

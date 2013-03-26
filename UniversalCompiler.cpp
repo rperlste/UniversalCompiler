@@ -1,7 +1,9 @@
 #include "UniversalCompiler.h"
 
 
-UniversalCompiler::UniversalCompiler( const char* grammarFilePtr, const char* programFilePtr, const char* compiledFilePtr ){
+UniversalCompiler::UniversalCompiler( const char* grammarFilePtr, 
+                                      const char* programFilePtr, 
+                                      const char* compiledFilePtr ){
 	if( grammarFilePtr != NULL ){
 		grammarFile.open( grammarFilePtr );
 	}
@@ -58,7 +60,8 @@ void UniversalCompiler::initialize(){
 		std::cin >> grammarFileName;
 		if( !setGrammarFile( grammarFileName )){
 			while( true ){
-				std:: cout << "\nInvalid grammar file. Enter 'Y' if you would like to try again, anything else cancels: ";
+				std:: cout << "\nInvalid grammar file."
+					<< "Enter 'Y' if you would like to try again, anything else cancels: ";
 				char choice = ' ';
 				if( choice == 'Y' || choice == 'y' ){
 					std::cout << "Please set the grammar file: ";
@@ -77,7 +80,8 @@ void UniversalCompiler::initialize(){
 		std::cin >> programFileName;
 		if( !setProgramFile( programFileName )){
 			while( true ){
-				std:: cout << "\nInvalid program file. Enter 'Y' if you would like to try again, anything else cancels: ";
+				std:: cout << "\nInvalid program file."
+					<< "Enter 'Y' if you would like to try again, anything else cancels: ";
 				char choice = ' ';
 				if( choice == 'Y' || choice == 'y' ){
 					std::cout << "Please set the program file: ";
@@ -363,7 +367,10 @@ void UniversalCompiler::runCompiler( bool printOutput ){
 
 	runPredictSetAnalyzer( false );
 	runParseTableGenerator( false );
-	compiler = new LL1Compiler( (*predictSetAnalyzer->getGrammar()), (*parseTableGenerator), programFile, compiledFile );
+	compiler = new LL1Compiler( (*predictSetAnalyzer->getGrammar()), 
+	                            (*parseTableGenerator), 
+	                              programFile, 
+	                              compiledFile );
 	compiler->RunLL1Compiler( printOutput );
 }
 

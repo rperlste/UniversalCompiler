@@ -9,23 +9,23 @@
 class ParseTable{
 public:
 	ParseTable();
-	ParseTable( const Grammar& grammar );
-	ParseTable( const ParseTable& );
-	void GenerateTable();
-	void GetTableAsString();
-	Production getPredictProduction( Symbol, Symbol );
-	const Grammar* getGrammar() const;
-	int** getTable() const;
+	ParseTable(         const Grammar& grammar );
+	ParseTable(         const ParseTable& );
 	~ParseTable();
+	void                GenerateTable();
+	void                GetTableAsString();
+	Production          getPredictProduction( Symbol, Symbol );
+	const Grammar*      getGrammar() const;
+	int**               getTable() const;
 private:
-	Grammar grammar;
-	int rowSize;
-	int colSize;
-	int predictSize;
-	std::string** predictKeys;
+	Grammar             grammar;
+	int                 rowSize;
+	int                 colSize;
+	int                 predictSize;
+	std::string**       predictKeys;
 	const std::string** nonterminalKeys;
 	const std::string** terminalKeys;
-	int** table;
+	int**               table;
 };
 
 #endif

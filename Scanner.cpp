@@ -252,7 +252,8 @@ void Scanner::consumeChar(){
 State::State Scanner::getNextState( State::State currentState, char currentChar ){
 	if( static_cast<int>(currentState) >= State::FINAL_STATE_INDEX )
 		return currentState;
-	return static_cast<State::State>( TRANSITION_TABLE[currentState][ CharacterSet::getCharacterSetValue( currentChar ) ]);
+	return static_cast<State::State>( 
+		TRANSITION_TABLE[currentState][ CharacterSet::getCharacterSetValue( currentChar ) ]);
 }
 
 Action::Action Scanner::getAction( State::State currentState, char currentChar ){

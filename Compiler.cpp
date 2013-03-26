@@ -1,6 +1,9 @@
 #include "Compiler.h"
 
-LL1Compiler::LL1Compiler( const Grammar& grammar, ParseTable& parseTable, std::fstream& programFile, std::fstream& compiledFile ){
+LL1Compiler::LL1Compiler( const Grammar& grammar, 
+                          ParseTable& parseTable, 
+                          std::fstream& programFile, 
+                          std::fstream& compiledFile ){
 	this->grammar = grammar;
 	this->parseTable = &parseTable;
 	lastSymbolIndex = 0;
@@ -32,10 +35,14 @@ void LL1Compiler::RunLL1Compiler( bool printOutput ){
 		if( topSymbol.type == SymbolEnum
 			&& grammar.nonterminalSet.contains( topSymbol.symbol ) ){
 			try{ 
-				// T(X, a) = X —> Y1Y2. . . Ym
-				Production predictProduction = parseTable->getPredictProduction( topSymbol.symbol, currentInputToken.getTokenValue() );
+				// T(X, a) = X ï¿½> Y1Y2. . . Ym
+				Production predictProduction = parseTable->getPredictProduction( 
+					topSymbol.symbol, currentInputToken.getTokenValue() );
 				parseStack.pop();
-				parseStack.push( EndOfProduction( leftIndex, rightIndex, currentIndex, topIndex));
+				parseStack.push( EndOfProduction( leftIndex, 
+				                                  rightIndex, 
+				                                  currentIndex, 
+				                                  topIndex));
 
 				// Push YmYm-1. . .Y1 on the parse stack
 				// Push YmYm-1. . .Y1 - ActionSymbol on the semantic stack
@@ -166,8 +173,8 @@ void LL1Compiler::WriteExpr( SemanticRecord outRecord ){
 	Generate( "Write", Extract(outRecord), "Integer" );
 }
 SemanticRecord LL1Compiler::GenInfix( SemanticRecord e1, 
-						SemanticRecord op,
-						SemanticRecord e2 ){
+                                      SemanticRecord op,
+                                      SemanticRecord e2 ){
 	SemanticRecord eRec( ExprRec );
 	eRec.exprRecord.exprKind = TempExpr;
 	eRec.exprRecord.name = GetTemp();

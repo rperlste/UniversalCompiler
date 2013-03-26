@@ -24,9 +24,9 @@ namespace CharacterSet {
 
 	static CharacterSet getCharacterSetValue( const char& characterValue ){
 		// Letter
-		if( ( characterValue >= 'a' && characterValue <= 'z' )
-			|| ( characterValue >= 'A' && characterValue <= 'Z' ))
-				return Letter;
+		if(    ( characterValue >= 'a' && characterValue <= 'z' )
+		    || ( characterValue >= 'A' && characterValue <= 'Z' ))
+			return Letter;
 		// Digit
 		else if( characterValue >= '0' && characterValue <= '9' )
 			return Digit;

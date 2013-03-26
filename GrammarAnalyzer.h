@@ -27,9 +27,9 @@ public:
 	void analyzeError( std::string error );
 
 private:
-	std::fstream* grammarFile;
-	bool error;
-	Grammar grammar;
+	std::fstream*      grammarFile;
+	bool               error;
+	Grammar            grammar;
 };
 
 #endif

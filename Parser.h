@@ -11,18 +11,18 @@
 
 class ParserDriver{
 public:
-	ParserDriver( const Grammar& grammar, ParseTable* parseTable );
-
-	void LLDriver( std::fstream& programFile, bool printOutput );
-
-	bool isStackEmpty();
-
+	ParserDriver( const Grammar& grammar, 
+	              ParseTable* parseTable );
 	~ParserDriver();
+	
+	void          LLDriver(    std::fstream& programFile, 
+	                           bool printOutput );
+	bool          isStackEmpty();
 
 private:
-	Grammar grammar;
-	ParseTable* parseTable;
-	std::stack<std::string> parseStack;
+	Grammar                    grammar;
+	ParseTable*                parseTable;
+	std::stack <std::string>   parseStack;
 };
 
 #endif

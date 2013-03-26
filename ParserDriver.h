@@ -11,13 +11,13 @@
 
 class ParserDriver {
 public:
-	ParserDriver( const Grammar& );
-	void parse( std::fstream&, bool );
+	ParserDriver(         const Grammar& );
+	void parse(           std::fstream&, bool );
 
 private:
-	Grammar grammar;
-	ParseTable* parseTable;
-	IndexedList<Symbol> parseStack;
+	Grammar               grammar;
+	ParseTable*           parseTable;
+	IndexedList <Symbol>  parseStack;
 };
 
 #endif

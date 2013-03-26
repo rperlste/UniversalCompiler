@@ -15,7 +15,10 @@
 class LL1Compiler{
 public:
 	// LL1 Compiler
-	LL1Compiler( const Grammar& grammar, ParseTable& parseTable, std::fstream& programFile, std::fstream& compiledFile );
+	LL1Compiler( const Grammar& grammar, 
+	             ParseTable& parseTable, 
+	             std::fstream& programFile, 
+	             std::fstream& compiledFile );
 	void RunLL1Compiler( bool printOutput );
 	~LL1Compiler();
 
@@ -38,8 +41,8 @@ public:
 	void ReadId( SemanticRecord inRecord );
 	void WriteExpr( SemanticRecord outRecord );
 	SemanticRecord GenInfix( SemanticRecord expression1, 
-							SemanticRecord oprand,
-							SemanticRecord expression2 );
+	                         SemanticRecord oprand,
+	                         SemanticRecord expression2 );
 	SemanticRecord ProccessId();
 	SemanticRecord ProcessLiteral();
 	SemanticRecord ProcessOperator();
@@ -47,24 +50,24 @@ public:
 
 private:
 	// CONSTANTS
-	const static unsigned MAX_SYMBOL = 1000;
+	const static unsigned         MAX_SYMBOL = 1000;
 
 	// VARIABLES
-	Symbol symbolTable[MAX_SYMBOL];
-	unsigned lastSymbolIndex;
-	unsigned maxTempIndex;
-	unsigned leftIndex;
-	unsigned rightIndex; 
-	unsigned topIndex; 
-	unsigned currentIndex;
+	Symbol                        symbolTable[MAX_SYMBOL];
+	unsigned                      lastSymbolIndex;
+	unsigned                      maxTempIndex;
+	unsigned                      leftIndex;
+	unsigned                      rightIndex; 
+	unsigned                      topIndex; 
+	unsigned                      currentIndex;
 
 	// DATA_STRUCTURES AND OBJECTS
-	Scanner* scanner;
-	Grammar grammar;
-	ParseTable* parseTable;
-	CompilerStack parseStack;
-	CompilerStack semanticStack;
-	std::fstream* compiledOutputFile;
+	Scanner*                      scanner;
+	Grammar                       grammar;
+	ParseTable*                   parseTable;
+	CompilerStack                 parseStack;
+	CompilerStack                 semanticStack;
+	std::fstream*                 compiledOutputFile;
 };
 
 #endif

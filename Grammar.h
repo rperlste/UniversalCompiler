@@ -12,13 +12,13 @@ static const Symbol _LAMBDA = "";
 
 struct Grammar {
 
-	Productions					productions;
-	GrammarSet					nonterminalSet;
-	GrammarSet					terminalSet;
-	MarkedVocabulary			derivesLambda;
-	LookAheadSet< Symbol >		firstSet;
-	LookAheadSet< Symbol >		followSet;
-	LookAheadSet< Production >	predictSet;
+	Productions                 productions;
+	GrammarSet                  nonterminalSet;
+	GrammarSet                  terminalSet;
+	MarkedVocabulary            derivesLambda;
+	LookAheadSet <Symbol>       firstSet;
+	LookAheadSet <Symbol>       followSet;
+	LookAheadSet <Production>   predictSet;
 
 	// Search through follow sets.
 	// If follow set is empty, then it is

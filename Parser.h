@@ -15,8 +15,8 @@ public:
 	              ParseTable* parseTable );
 	~ParserDriver();
 	
-	void          LLDriver(    std::fstream& programFile, 
-	                           bool printOutput );
+	void          LLDriver( std::fstream& programFile, 
+	                        bool printOutput );
 	bool          isStackEmpty();
 
 private:

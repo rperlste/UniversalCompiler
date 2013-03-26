@@ -27,7 +27,8 @@ void ParserDriver::LLDriver( std::fstream& programFile, bool printOutput ){
 		if( grammar.nonterminalSet.contains( topStackSymbol )){
 			try{
 				// Find production: X -> Y1 Y2 ... Ym
-				Production production = parseTable->getPredictProduction(topStackSymbol, currentInputToken.getTokenTypeString() );
+				Production production = parseTable->getPredictProduction(
+					topStackSymbol, currentInputToken.getTokenTypeString() );
 
 				// Remove production X so that it can be replaced with it's derived production.
 				parseStack.pop();

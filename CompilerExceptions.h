@@ -30,15 +30,6 @@ private:
 	std::string valueNotFound;
 };
 
-/*
-class IndexOutOfBounds : public std::exception {
-public:
-	virtual const char* what() throw(){ 
-		return "Index is out of bounds.";
-	}
-};
-*/
-
 class GrammarException : public std::exception {
 public:
 	GrammarException( std::string reason ){
